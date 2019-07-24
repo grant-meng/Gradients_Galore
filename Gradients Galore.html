@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <h2>Welcome To Gradients Galore</h2>
+    <br>
+
+
+
+
+<label>Background Color #1:</label>
+    <select id='cl1'>
+<option value="">Background Color 1</option>
+<option value="#000000" style="background-color: Black;color: #FFFFFF;">Black</option>
+<option value="#808080" style="background-color: Gray;">Gray</option>
+<option value="#A9A9A9" style="background-color: DarkGray;">DarkGray</option>
+<option value="#D3D3D3" style="background-color: LightGrey;">LightGray</option>
+<option value="#FFFFFF" style="background-color: White;">White</option>
+<option value="#7FFFD4" style="background-color: Aquamarine;">Aquamarine</option>
+<option value="#0000FF" style="background-color: Blue;">Blue</option>
+<option value="#000080" style="background-color: Navy;color: #FFFFFF;">Navy</option>
+<option value="#800080" style="background-color: Purple;color: #FFFFFF;">Purple</option>
+<option value="#FF1493" style="background-color: DeepPink;">DeepPink</option>
+<option value="#EE82EE" style="background-color: Violet;">Violet</option>
+<option value="#FFC0CB" style="background-color: Pink;">Pink</option>
+<option value="#006400" style="background-color: DarkGreen;color: #FFFFFF;">DarkGreen</option>
+<option value="#008000" style="background-color: Green;color: #FFFFFF;">Green</option>
+<option value="#9ACD32" style="background-color: YellowGreen;">YellowGreen</option>
+<option value="#FFFF00" style="background-color: Yellow;">Yellow</option>
+<option value="#FFA500" style="background-color: Orange;">Orange</option>
+<option value="#FF0000" style="background-color: Red;">Red</option>
+<option value="#A52A2A" style="background-color: Brown;">Brown</option>
+<option value="#DEB887" style="background-color: BurlyWood;">BurlyWood</option>
+<option value="#F5F5DC" style="background-color: Beige;">Beige</option>
+</select>
+<br>
+
+
+<label>Background Color #2:</label>
+  <select id='cl2'>
+<option value="">Background Color 2</option>
+<option value="#000000" style="background-color: Black;color: #FFFFFF;">Black</option>
+<option value="#808080" style="background-color: Gray;">Gray</option>
+<option value="#A9A9A9" style="background-color: DarkGray;">DarkGray</option>
+<option value="#D3D3D3" style="background-color: LightGrey;">LightGray</option>
+<option value="#FFFFFF" style="background-color: White;">White</option>
+<option value="#7FFFD4" style="background-color: Aquamarine;">Aquamarine</option>
+<option value="#0000FF" style="background-color: Blue;">Blue</option>
+<option value="#000080" style="background-color: Navy;color: #FFFFFF;">Navy</option>
+<option value="#800080" style="background-color: Purple;color: #FFFFFF;">Purple</option>
+<option value="#FF1493" style="background-color: DeepPink;">DeepPink</option>
+<option value="#EE82EE" style="background-color: Violet;">Violet</option>
+<option value="#FFC0CB" style="background-color: Pink;">Pink</option>
+<option value="#006400" style="background-color: DarkGreen;color: #FFFFFF;">DarkGreen</option>
+<option value="#008000" style="background-color: Green;color: #FFFFFF;">Green</option>
+<option value="#9ACD32" style="background-color: YellowGreen;">YellowGreen</option>
+<option value="#FFFF00" style="background-color: Yellow;">Yellow</option>
+<option value="#FFA500" style="background-color: Orange;">Orange</option>
+<option value="#FF0000" style="background-color: Red;">Red</option>
+<option value="#A52A2A" style="background-color: Brown;">Brown</option>
+<option value="#DEB887" style="background-color: BurlyWood;">BurlyWood</option>
+<option value="#F5F5DC" style="background-color: Beige;">Beige</option>
+</select>
+  </head>
+
+
+
+<br>
+  <label>Gradient direction:</label>
+  <select id='choiceSelector'>
+    <option value="">Choose a direction:</option>
+    <option value='cornerToCorner1'>Top Left to Bottom Right</option>
+    <option value='cornerToCorner2'>Top Right to Bottom Left</option>
+    <option value='topToBottom'>Top to Bottom</option>
+    <option value='leftToRight'>Left to Right</option>
+  </select>
+
+
+
+
+  <body>
+    <canvas id = 'myCanvas'><p>Canvas not supported</p></canvas>
+    <script>
+      //variables
+        var myCanvas = document.getElementById('myCanvas');
+        var ctx = myCanvas.getContext('2d');
+        myCanvas.height = window.innerHeight;
+        myCanvas.width = window.innerWidth;
+        var cl1Color = "#000000";
+        var cl2Color = "#ffffff";
+
+
+        //Random Color
+        for(i = 0;i > 100;i++){
+          cl1Color = cl1Color+1;
+          cl2Color = cl2Color+1;
+        }
+
+        //what happens when you click on the direction of the gradient
+      choiceSelector.onchange = function(){
+      var choice  = choiceSelector.value;  //* Gets the value from the select elements
+
+      switch (choice){
+        case ("cornerToCorner1"):
+          document.body.style.backgroundImage = "linear-gradient(to bottom right," + cl1.value + "," + cl2.value + ")";
+          break;
+
+        case "cornerToCorner2":
+          document.body.style.backgroundImage = "linear-gradient(to bottom left," + cl1.value + "," + cl2.value + ")";
+          break;
+
+        case "topToBottom":
+          document.body.style.backgroundImage = "linear-gradient(" + cl1.value + "," + cl2.value + ")";
+          break;
+
+        case "leftToRight":
+          document.body.style.backgroundImage = "linear-gradient(to right," + cl1.value + "," + cl2.value + ")";
+          break;
+
+      }
+  }
+
+    </script>
+  </body>
+</html>
